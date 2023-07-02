@@ -1,0 +1,1 @@
+/home/baljgoi/.zprezto/runcoms/zshrc

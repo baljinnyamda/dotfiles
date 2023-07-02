@@ -1,0 +1,40 @@
+#
+# Executes commands at the start of an interactive session.
+#
+# Authors:
+#   Sorin Ionescu <sorin.ionescu@gmail.com>
+#
+
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+fi
+
+# Customize to your needs...
+
+HISTFILE=~/.histfile
+HISTSIZE=100
+SAVEHIST=1000
+# End of lines configured by zsh-newuser-install
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+autoload -U compinit promptinit
+
+promptinit
+# prompt pure
+
+compinit
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|=*' 'l:|=* r:|=*'
+fpath=(/usr/local/share/zsh-completions $fpath)
+# xrandr
+# !THIS might be causing shits 
+export PATH="/home/baljgoi/.local/bin:$PATH"
+export PATH="$PATH:/home/baljgoi/Documents/flutter/bin"
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+source /usr/share/nvm/init-nvm.sh
+export PATH="$PATH":"$HOME/.pub-cache/bin"
